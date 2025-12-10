@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Secure your unique edgely.link address for free. The instant, professional foundation for the brand you are about to build.">
+<meta property="og:title" content="Edgely | Claim Your Unique Name">
+<meta property="og:description" content="Start with your identity. Secure your free custom link instantly.">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/xisedge/assets@main/edgely-social-card.png"> <meta property="og:url" content="https://edgely.link">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+
+<title>Edgely.link | Claim Your Unique Name</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="https://cdn.jsdelivr.net/gh/xisedge/assets@main/edgely.icon.svg">
+<link rel="apple-touch-icon" href="https://cdn.jsdelivr.net/gh/xisedge/assets@main/edgely-icon.png">
+
+<style>
+  :root {
+    --brand-primary: #6c1eef;
+    --brand-secondary: #3a0ca3;
+    --text-main: #0f172a;
+    --text-muted: #64748b;
+    --bg-color: #ffffff;
+    --font-family: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0; padding: 0;
+    font-family: var(--font-family);
+    background: var(--bg-color);
+    overflow-x: hidden;
+    width: 100%;
+    display: flex; flex-direction: column; min-height: 100vh;
+  }
+
+  /* --- HERO SECTION --- */
+  .hero-container {
+    flex: 1;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    gap: 12px; padding: 40px 20px;
+    width: 100%;
+  }
+   
+  /* LOGO */
+  .logo-container { margin-bottom: 12px; animation: fadeIn 1s ease-out; }
+  .logo-link { display: inline-block; text-decoration: none; border: none; cursor: pointer; transition: transform 0.2s ease; }
+  .logo-link:hover { transform: scale(1.02); opacity: 0.9; }
+  .site-logo { height: 50px; width: auto; display: block; margin: 0 auto; }
+
+  /* BADGE */
+  .access-badge {
+    display: inline-flex; align-items: center; padding: 6px 14px;
+    background: rgba(108, 30, 239, 0.08); border: 1px solid rgba(108, 30, 239, 0.2);
+    border-radius: 30px; color: var(--brand-primary); font-size: 0.8rem;
+    font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 24px;
+  }
+  .star-icon { width: 12px; height: 12px; margin-right: 6px; fill: currentColor; }
+
+  /* TEXT */
+  .hero-text { text-align: center; max-width: 720px; width: 100%; animation: fadeIn 1s ease-out; }
+  .hero-text h1 { 
+    font-size: 3rem; font-weight: 700; color: var(--text-main); margin: 20px auto; 
+    width: 100%; max-width: 600px; line-height: 1.1; letter-spacing: -0.02em; 
+  }
+  .hero-text p { font-size: 1.25rem; color: var(--text-muted); font-weight: 400; margin: 0; line-height: 1.6; }
+  .edgely-highlight { color: var(--brand-secondary); font-weight: 600; }
+
+  /* ANIMATION */
+  .glass-card {
+    position: relative; padding: 20px 0px; display: flex;
+    justify-content: center; align-items: baseline; font-size: 3rem; margin-bottom: 30px;
+    width: 100%; overflow: hidden;
+  }
+  #domain-display { display: flex; align-items: baseline; transition: opacity 0.5s ease-in-out; opacity: 0; }
+  #typing-text {
+    font-weight: 800; letter-spacing: -0.04em;
+    background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-secondary) 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .static-suffix { color: #94a3b8; font-weight: 400; letter-spacing: -0.02em; margin-left: 2px; }
+
+  /* --- INPUT SECTION --- */
+  .edgely-reserve-section { 
+    width: 100%; max-width: 550px; position: relative; z-index: 10; padding: 0; margin: 0 auto;
+    opacity: 0; animation: fadeIn 1s ease-out forwards; animation-delay: 0.4s;
+  }
+
+  .edgely-pill-bar {
+    display: flex; align-items: center; background: #ffffff;
+    border: 2px solid #E5E7EB; border-radius: 9999px; padding: 6px;
+    box-shadow: 0 10px 30px -5px rgba(108, 30, 239, 0.15);
+    transition: all 0.3s ease; position: relative; z-index: 20; flex-wrap: nowrap; 
+  }
+  .edgely-pill-bar:focus-within {
+    border-color: var(--brand-primary); box-shadow: 0 8px 30px rgba(108, 30, 239, 0.15); transform: translateY(-2px);
+  }
+
+  .edgely-input-group { display: flex; flex: 1; align-items: center; padding-left: 24px; }
+  .edgely-pill-input {
+    flex: 1; border: 0 !important; outline: none !important; background: transparent !important;
+    box-shadow: none !important; padding: 12px 0; font-size: 18px; font-weight: 500; color: #111; min-width: 50px;
+    font-family: var(--font-family);
+  }
+  .edgely-pill-input::placeholder { color: #9CA3AF; font-weight: 400; }
+  .edgely-pill-suffix { color: #9CA3AF; font-size: 18px; font-weight: 500; white-space: nowrap; padding-right: 20px; user-select: none; }
+
+  .edgely-pill-btn {
+    background: var(--brand-primary); color: white; border: none; 
+    border-radius: 9999px; padding: 14px 32px; min-width: 130px; height: 52px; font-size: 16px; font-weight: 600;
+    cursor: pointer; transition: all 0.3s ease; white-space: nowrap; display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-family);
+  }
+  .edgely-pill-btn:hover { background: var(--brand-secondary); }
+  .edgely-pill-btn:disabled { background: #A78BFA; cursor: wait; }
+
+  /* RESULT CARD */
+  .edgely-result-card {
+    margin-top: 15px; background: #ffffff; border: 1px solid #E5E7EB; border-radius: 24px;
+    opacity: 0; visibility: hidden; transform: translateY(-10px); pointer-events: none;
+    height: 0; padding: 0; margin-bottom: 0;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex; flex-direction: column; align-items: center; gap: 10px; overflow: hidden; 
+  }
+  .edgely-result-card.is-visible { 
+    opacity: 1; visibility: visible; transform: translateY(0); pointer-events: all;
+    height: auto; margin-bottom: 30px; padding: 20px 24px;
+    box-shadow: 0 10px 40px -10px rgba(0,0,0,0.08); 
+  }
+  .edgely-result-card.success { background-color: #ECFDF5 !important; border: 1px solid #10B981 !important; }
+  .edgely-result-card.error { background-color: #FFF1F2 !important; border: 1px solid #F43F5E !important; }
+  .edgely-status-text { font-size: 1.1rem; color: #059669; font-weight: 700; text-align: center; }
+  .edgely-status-text.error { color: #e11d48; }
+
+  .edgely-claim-btn {
+    width: 100%; padding: 14px; background: #059669; color: white; border: none; border-radius: 9999px;
+    font-size: 16px; font-weight: 700; cursor: pointer; display: flex; justify-content: center; align-items: center; gap: 8px;
+    transition: all 0.2s ease; box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+  }
+  .edgely-claim-btn:hover { background: #047857; transform: translateY(-2px); }
+
+  .edgely-spinner {
+    display: none; width: 20px; height: 20px; border: 3px solid rgba(255,255,255,0.3);
+    border-radius: 50%; border-top-color: #fff; animation: spin 0.8s ease-in-out infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* --- FOOTER --- */
+  .edgely-footer {
+    width: 100%; padding: 30px 20px; text-align: center;
+    border-top: 1px solid #F3F4F6; background: #ffffff;
+  }
+  .footer-links { display: flex; justify-content: center; gap: 25px; margin-bottom: 15px; flex-wrap: wrap; }
+  .footer-links a { color: var(--text-muted); font-size: 0.9rem; text-decoration: none; font-weight: 500; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--brand-primary); }
+  .copyright { color: #9CA3AF; font-size: 0.8rem; }
+
+  /* --- MODAL STYLES (UNIVERSAL) --- */
+  .edgely-modal-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.4); backdrop-filter: blur(8px);
+    z-index: 9999; opacity: 0; visibility: hidden; pointer-events: none;
+    transition: all 0.3s ease; display: flex; justify-content: center; align-items: center; padding: 20px;
+  }
+  .edgely-modal-overlay.active { opacity: 1; visibility: visible; pointer-events: all; }
+  
+  .edgely-modal-card {
+    background: #ffffff; width: 100%; max-width: 600px; max-height: 85vh;
+    border-radius: 24px; box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+    display: flex; flex-direction: column; 
+    transform: translateY(20px); /* Desktop Initial State */
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+  }
+  /* Active State (Global) */
+  .edgely-modal-overlay.active .edgely-modal-card { transform: translateY(0); }
+
+  /* Header */
+  .modal-header { padding: 20px 25px; border-bottom: 1px solid #F3F4F6; display: flex; justify-content: space-between; align-items: center; }
+  .modal-title { font-size: 1.2rem; font-weight: 700; color: var(--text-main); margin: 0; }
+  .modal-close { background: #F3F4F6; border: none; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #555; }
+  
+  /* Content */
+  .modal-content { padding: 25px; overflow-y: auto; font-size: 0.95rem; line-height: 1.6; color: var(--text-muted); }
+  .modal-content h3 { color: var(--text-main); margin-top: 20px; margin-bottom: 10px; font-size: 1.1rem; }
+  .modal-content p { margin-bottom: 15px; }
+
+  /* Form */
+  .abuse-form label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: var(--text-main); }
+  .abuse-input, .abuse-textarea {
+    width: 100%; padding: 12px; border-radius: 12px; border: 1px solid #E5E7EB;
+    font-family: var(--font-family); font-size: 0.95rem; margin-bottom: 15px; outline: none; transition: border 0.2s;
+  }
+  .abuse-input:focus, .abuse-textarea:focus { border-color: var(--brand-primary); }
+  .abuse-textarea { height: 100px; resize: vertical; }
+  .submit-abuse-btn { width: 100%; padding: 14px; background: #e11d48; color: white; border: none; border-radius: 12px; font-weight: 600; cursor: pointer; font-family: var(--font-family); }
+
+  /* --- MOBILE RESPONSIVENESS --- */
+  @media (max-width: 750px) {
+    .site-logo { height: 40px; }
+    .hero-text p { font-size: 18px; }
+    .hero-text h1 { font-size: 2.2rem; max-width: 100%; }
+    .glass-card { font-size: 2rem; padding: 20px 10px; }
+    .edgely-pill-bar { flex-direction: column; align-items: stretch; padding: 8px; border-radius: 30px; gap: 10px; }
+    .edgely-input-group { width: 100%; padding-left: 8px; justify-content: center; }
+    .edgely-pill-input { padding-right: 2px; }
+    .edgely-pill-suffix { padding-left: 0; }
+    .edgely-pill-btn { width: 100%; border-radius: 9999px; }
+    
+    /* MODAL MOBILE FIX: BOTTOM SHEET STYLE */
+    .edgely-modal-overlay { align-items: flex-end; padding: 0; }
+    .edgely-modal-card {
+      border-radius: 24px 24px 0 0; /* Only top corners */
+      max-height: 85vh;
+      margin-bottom: 0;
+      width: 100%;
+      transform: translateY(100%); /* Start completely off screen */
+    }
+  }
+  
+  /* Success Icon Pop */
+  @keyframes popIn { 0% { transform: scale(0); opacity: 0; } 80% { transform: scale(1.1); opacity: 1; } 100% { transform: scale(1); } }
+
+/* ADD THIS BLOCK HERE */
+  .system-status-container {
+      display: flex; justify-content: center; margin-bottom: 20px; animation: fadeIn 2s ease-out;
+  }
+  .status-indicator {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 12px;
+      background: #F9FAFB; border: 1px solid #E5E7EB;
+      border-radius: 20px; font-size: 0.75rem; color: #6B7280; font-weight: 500;
+  }
+  .pulse-dot {
+      width: 6px; height: 6px; background-color: #10B981;
+      border-radius: 50%; box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+      animation: pulseStatus 2s infinite;
+  }
+  @keyframes pulseStatus {
+      0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+      70% { box-shadow: 0 0 0 4px rgba(16, 185, 129, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero-container">
+    <div class="logo-container">
+      <a href="/" class="logo-link">
+          <img src="https://cdn.jsdelivr.net/gh/xisedge/assets@main/edgely.logo.svg" alt="Edgely" class="site-logo">
+      </a>
+    </div>
+  
+  <div class="hero-text">
+    <div class="access-badge">
+      <svg class="star-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      Early Access
+    </div>
+    
+    <h1>Claim Your Unique edgely.link Name.</h1>
+    
+    <p>
+      <strong>Your new website starts here.</strong> Secure your unique address for free. 
+      It’s the instant, professional foundation for the <span class="edgely-highlight">brand you are about to build.</span>
+    </p>
+  </div>
+
+  <div class="glass-card">
+    <div id="domain-display">
+      <span id="typing-text"></span>
+      <span class="static-suffix">.edgely.link</span>
+    </div>
+  </div>
+
+  <div class="edgely-reserve-section">
+      <div class="edgely-pill-bar">
+          <div class="edgely-input-group">
+              <input type="text" id="edgely_pill_input" class="edgely-pill-input" placeholder="Enter desired name" autocomplete="off">
+              <div class="edgely-pill-suffix">.edgely.link</div>
+          </div>
+          <button id="edgely_pill_btn" class="edgely-pill-btn">
+              <span id="edgely_btn_text">Claim Now</span>
+              <div id="edgely_btn_loader" class="edgely-spinner"></div>
+          </button>
+      </div>
+
+      <div id="edgely_result_card" class="edgely-result-card">
+          <div id="edgely_result_msg" class="edgely-status-text"></div>
+          <button id="edgely_claim_action_btn" class="edgely-claim-btn">
+              Claim Name <i class="bi bi-arrow-right"></i>
+          </button>
+      </div>
+  </div>
+</div>
+
+<div class="system-status-container">
+    <div class="status-indicator">
+        <span class="pulse-dot"></span>
+        <span class="status-text">Systems Operational</span>
+    </div>
+</div>
+
+<footer class="edgely-footer">
+  <div class="footer-links">
+    <a href="#" onclick="openModal('modal-terms'); return false;">Terms</a>
+    <a href="#" onclick="openModal('modal-privacy'); return false;">Privacy</a>
+    <a href="#" onclick="openModal('modal-abuse'); return false;" style="color:#e11d48;">Report Abuse</a>
+    <a href="mailto:support@xisedge.tech">Contact</a>
+  </div>
+  <div class="copyright">
+    &copy; 2025 Edgely.link • by <strong>XIS EDGE</strong>
+  </div>
+</footer>
+
+<div id="modal-terms" class="edgely-modal-overlay" onclick="closeModal('modal-terms')">
+  <div class="edgely-modal-card" onclick="event.stopPropagation()">
+    <div class="modal-header">
+      <h3 class="modal-title">Terms of Service</h3>
+      <button class="modal-close" onclick="closeModal('modal-terms')"><i class="bi bi-x-lg"></i></button>
+    </div>
+    <div class="modal-content">
+      <p><strong>Last Updated: October 2025</strong></p>
+      <p>Welcome to Edgely.link. By claiming a subdomain, you agree to the following terms:</p>
+      <h3>1. Subdomain Ownership</h3>
+      <p>Claiming a name on Edgely.link grants you a lease to use that subdomain. We reserve the right to reclaim names that violate our policies or trademark laws.</p>
+      <h3>2. Content Responsibility</h3>
+      <p>You are solely responsible for the content published on your subdomain. Edgely.link and XIS EDGE serve as the infrastructure provider and do not endorse user-generated content.</p>
+      <h3>3. Prohibited Use</h3>
+      <p>We have zero tolerance for phishing, malware distribution, or illegal activities. Any subdomain found in violation will be suspended immediately without notice.</p>
+    </div>
+  </div>
+</div>
+
+<div id="modal-privacy" class="edgely-modal-overlay" onclick="closeModal('modal-privacy')">
+  <div class="edgely-modal-card" onclick="event.stopPropagation()">
+    <div class="modal-header">
+      <h3 class="modal-title">Privacy Policy</h3>
+      <button class="modal-close" onclick="closeModal('modal-privacy')"><i class="bi bi-x-lg"></i></button>
+    </div>
+    <div class="modal-content">
+      <p>Your privacy is important to us. This policy outlines how we handle your data when you claim a link.</p>
+      <h3>Data Collection</h3>
+      <p>We collect your email address and basic profile information solely for the purpose of account management and service notifications.</p>
+      <h3>No Third-Party Sharing</h3>
+      <p>We do not sell your personal data to advertisers or third parties.</p>
+    </div>
+  </div>
+</div>
+
+<div id="modal-abuse" class="edgely-modal-overlay" onclick="closeModal('modal-abuse')">
+  <div class="edgely-modal-card" onclick="event.stopPropagation()">
+    <div class="modal-header">
+      <h3 class="modal-title" style="color:#e11d48">Report Abuse</h3>
+      <button class="modal-close" onclick="closeModal('modal-abuse')"><i class="bi bi-x-lg"></i></button>
+    </div>
+    <div class="modal-content">
+      <p>We take phishing and safety seriously. Please report any suspicious <code>.edgely.link</code> sites below.</p>
+      <form class="abuse-form" onsubmit="submitAbuse(event)">
+        <label>Suspicious URL *</label>
+        <input type="text" id="abuse-url" class="abuse-input" placeholder="e.g. login-bank.edgely.link" required>
+        
+        <label>Reason *</label>
+        <select id="abuse-category" class="abuse-input">
+            <option value="Phishing">Phishing / Scam</option>
+            <option value="Malware">Malware / Virus</option>
+            <option value="Trademark">Copyright Infringement</option>
+            <option value="Other">Other</option>
+        </select>
+        
+        <label>Details (Optional)</label>
+        <textarea id="abuse-details" class="abuse-textarea" placeholder="Please describe the issue..."></textarea>
+
+        <label>Your Email (Optional)</label>
+        <input type="email" id="abuse-email" class="abuse-input" placeholder="So we can update you">
+        
+        <button type="submit" class="submit-abuse-btn">Submit Report</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div id="modal-abuse-success" class="edgely-modal-overlay" onclick="closeModal('modal-abuse-success')">
+  <div class="edgely-modal-card" style="max-width: 400px; text-align: center; padding: 40px 30px;" onclick="event.stopPropagation()">
+    <div style="width: 70px; height: 70px; background: #ECFDF5; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px auto; animation: popIn 0.5s cubic-bezier(0.16, 1, 0.3, 1);">
+      <i class="bi bi-check-lg" style="font-size: 35px; color: #059669;"></i>
+    </div>
+    <h3 class="modal-title" style="margin-bottom: 10px; font-size: 1.4rem; color: #059669;">Report Received</h3>
+    <p style="color: #666; font-size: 0.95rem; line-height: 1.5; margin-bottom: 25px;">
+      Thank you for keeping <strong>Edgely.link</strong> safe. Our security team has been notified and will investigate immediately.
+    </p>
+    <button onclick="closeModal('modal-abuse-success')" style="background: #059669; color: white; border: none; padding: 14px 30px; border-radius: 50px; font-weight: 600; cursor: pointer; width: 100%; transition: opacity 0.2s;">
+      Close
+    </button>
+  </div>
+</div>
+
+<script>
+  // 1. ANIMATION
+  const words = ["ellabakes", "jordan", "enochai", "burbi", "greenroots", "sunda"];
+  const typingText = document.getElementById("typing-text");
+  const domainDisplay = document.getElementById("domain-display"); 
+  let wordIndex = 0;
+  const FADE_DURATION = 500; const READ_TIME = 2000;    
+
+  const fadeEffect = () => {
+    const currentWord = words[wordIndex];
+    domainDisplay.style.opacity = 0;
+    setTimeout(() => {
+        typingText.textContent = currentWord;
+        domainDisplay.style.opacity = 1;
+        setTimeout(() => {
+            wordIndex = (wordIndex + 1) % words.length;
+            fadeEffect();
+        }, READ_TIME);
+    }, FADE_DURATION);
+  };
+
+  // 2. MAIN LOGIC
+  document.addEventListener("DOMContentLoaded", function() {
+    typingText.textContent = words[wordIndex];
+    setTimeout(fadeEffect, 100); 
+
+    const SUPABASE_URL = 'https://mrjluclvrcuhrjgtjhlh.supabase.co'; 
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1yamx1Y2x2cmN1aHJqZ3RqaGxoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQxODk4NzAsImV4cCI6MjA3OTc2NTg3MH0.0Ipxz1MeW3cbb4CUm7ht8QhH7zqskE4sU6_XVCPxFvk';
+
+    const checkBtn = document.getElementById('edgely_pill_btn');
+    const checkBtnText = document.getElementById('edgely_btn_text');
+    const checkBtnLoader = document.getElementById('edgely_btn_loader');
+    const input = document.getElementById('edgely_pill_input');
+    
+    const resultCard = document.getElementById('edgely_result_card');
+    const resultMsg = document.getElementById('edgely_result_msg');
+    const claimBtn = document.getElementById('edgely_claim_action_btn');
+
+    let claimedName = '';
+
+    // --- A. GET OR CREATE MY VIP BADGE ---
+    let myOwnerId = localStorage.getItem('edgely_device_id');
+    if (!myOwnerId) {
+        myOwnerId = 'user_' + Math.random().toString(36).substr(2, 9);
+        localStorage.setItem('edgely_device_id', myOwnerId);
+    }
+
+    input.addEventListener('input', function() { hideResult(); });
+    input.addEventListener("keypress", function(event) {
+        if (event.key === "Enter") checkBtn.click();
+    });
+
+    checkBtn.addEventListener('click', async function() {
+        let name = input.value.trim().toLowerCase()
+            .replace(/[^a-z0-9-]/g, '').replace(/^-+|-+$/g, '');    
+        input.value = name;
+
+        if (name.length < 2) { 
+            showResult("&#x26a0;&#xfe0f; Name must be at least 2 characters.", 'error');
+            return; 
+        }
+
+        setLoading(true);
+        hideResult();
+
+        try {
+            const response = await fetch(`${SUPABASE_URL}/rest/v1/rpc/reserve_subdomain`, {
+                method: 'POST',
+                headers: {
+                    'apikey': SUPABASE_ANON_KEY,
+                    'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ 
+                    name_request: name,
+                    request_owner_id: myOwnerId 
+                })
+            });
+
+            if (!response.ok) throw new Error('Network error');
+            const result = await response.json();
+
+            if (result === 'success') {
+                claimedName = name;
+                showResult(`&#x2728; <strong>${name}.edgely.link</strong> is available.`, 'success');
+            } else if (result === 'taken') {
+                showResult(`&#x26a0;&#xfe0f; <strong>${name}.edgely.link</strong> is currently taken.`, 'taken');
+            } else {
+                showResult("System unavailable.", 'error');
+            }
+
+        } catch (err) {
+            console.error(err);
+            showResult("Connection error. Please try again.", 'error');
+        } finally {
+            setLoading(false);
+        }
+    });
+
+    // ACTION: Claim with Chatbot
+    claimBtn.addEventListener('click', function() {
+        if(claimedName && claimedName.length >= 2) {
+            claimWithNexi(claimedName);
+        } else {
+            console.warn("Attempted to claim invalid name");
+        }
+    });
+
+    function showResult(html, type) {
+        resultMsg.innerHTML = html;
+        resultCard.className = 'edgely-result-card'; 
+        resultMsg.className = 'edgely-status-text';
+
+        if(type === 'success') {
+            claimBtn.style.display = 'flex'; 
+            resultCard.classList.add('success');
+        } else {
+            resultMsg.classList.add('error'); 
+            resultCard.classList.add('error');   
+            claimBtn.style.display = 'none'; 
+        }
+        setTimeout(() => { resultCard.classList.add('is-visible'); }, 10);
+    }
+
+    function hideResult() {
+        resultCard.classList.remove('is-visible');
+        claimedName = '';
+    }
+
+    function setLoading(isLoading) {
+        checkBtn.disabled = isLoading;
+        if (isLoading) {
+            checkBtnText.style.display = 'none';
+            checkBtnLoader.style.display = 'block';
+        } else {
+            checkBtnText.style.display = 'block';
+            checkBtnLoader.style.display = 'none';
+        }
+    }
+
+    function claimWithNexi(name) {
+        const btn = document.getElementById('edgely_claim_action_btn');
+        if(btn) btn.innerHTML = 'Redirecting... <div class="edgely-spinner" style="display:inline-block"></div>';
+        
+        const ownerId = localStorage.getItem('edgely_device_id');
+        setTimeout(() => {
+            window.location.href = `https://xisedge.tech?reserved_name=${encodeURIComponent(name)}&ref_id=${encodeURIComponent(ownerId)}`;
+        }, 800);
+    }
+  });
+
+  // --- MODAL FUNCTIONS ---
+  function openModal(id) {
+      document.getElementById(id).classList.add('active');
+      document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal(id) {
+      document.getElementById(id).classList.remove('active');
+      document.body.style.overflow = 'auto';
+  }
+
+  async function submitAbuse(e) {
+      e.preventDefault();
+      
+      const btn = e.target.querySelector('button[type="submit"]');
+      const originalText = btn.innerText;
+      
+      const url = document.getElementById('abuse-url').value;
+      const category = document.getElementById('abuse-category').value;
+      const details = document.getElementById('abuse-details').value;
+      const email = document.getElementById('abuse-email').value;
+
+      const finalReason = `${category}: ${details}`;
+
+      btn.innerText = "Securely Sending...";
+      btn.disabled = true;
+
+      const SUPABASE_URL = 'https://mrjluclvrcuhrjgtjhlh.supabase.co'; 
+      const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1yamx1Y2x2cmN1aHJqZ3RqaGxoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQxODk4NzAsImV4cCI6MjA3OTc2NTg3MH0.0Ipxz1MeW3cbb4CUm7ht8QhH7zqskE4sU6_XVCPxFvk';
+
+      try {
+          const response = await fetch(`${SUPABASE_URL}/rest/v1/abuse_reports`, {
+              method: 'POST',
+              headers: {
+                  'apikey': SUPABASE_ANON_KEY,
+                  'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+                  'Content-Type': 'application/json',
+                  'Prefer': 'return=minimal'
+              },
+              body: JSON.stringify({
+                  target_url: url,
+                  reason: finalReason,
+                  reporter_email: email
+              })
+          });
+
+          if (response.ok) {
+              closeModal('modal-abuse');
+              e.target.reset(); 
+              setTimeout(() => {
+                  openModal('modal-abuse-success');
+              }, 300);
+          } else {
+              throw new Error('Submission failed');
+          }
+
+      } catch (error) {
+          console.error(error);
+          alert("Error connecting to security server. Please email support@xisedge.tech");
+      } finally {
+          btn.innerText = originalText;
+          btn.disabled = false;
+      }
+  }
+</script>
+
+</body>
+</html>
